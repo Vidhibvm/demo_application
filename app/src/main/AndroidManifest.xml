@@ -5,12 +5,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
-<!--    need for service-->
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- need for service -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-    <uses-permission  android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:allowBackup="true"
@@ -25,13 +23,14 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
+            android:name=".LargeApiCall.RestApiActivity"
+            android:exported="false" />
+        <activity
             android:name=".apicall.MainActivity"
             android:exported="false" />
         <activity
             android:name=".NestestJsonCall.NestedApiActivityActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".sqlitedatabse.MainActivity"
             android:exported="true">
@@ -43,39 +42,42 @@
         </activity>
         <activity
             android:name=".SplashActivity"
-            android:exported="false"></activity>
-       <!-- <service
+            android:exported="false" />
+        <!--
+ <service
             android:name=".MyService"
             android:enabled="true"
             android:exported="true"
             android:process=":remote"
-            android:stopWithTask="false" />-->
-        <receiver android:name=".backgroudservice.AlarmReceiver"  android:enabled="true"
-            android:exported="true" android:process=":remote"  >
-            <!--   <intent-filter>
+            android:stopWithTask="false" />
+        -->
+        <receiver
+            android:name=".backgroudservice.AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+
+            <!--
+               <intent-filter>
                    <action android:name="com.test.intent.action.ALARM" />
-               </intent-filter>-->
+               </intent-filter>
+            -->
         </receiver>
 
-
         <service
-            android:name=".backgroudservice.MakeMyToast" android:process=":remote"
-            />
-
-<!--
+            android:name=".backgroudservice.MakeMyToast"
+            android:process=":remote" />
+        <!--
         <service android:name=".MyService"
             android:exported="false"
             android:enabled="true"
-            android:foregroundServiceType="location"/>-->
-
-
+            android:foregroundServiceType="location"/>
+        -->
         <service
             android:name=".firebasenotification.PushNotificationService"
             android:exported="false">
             <intent-filter>
-                <action
-                    android:name="com.google.firebase.MESSAGING_EVENT">
-                </action>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"></action>
             </intent-filter>
         </service>
     </application>

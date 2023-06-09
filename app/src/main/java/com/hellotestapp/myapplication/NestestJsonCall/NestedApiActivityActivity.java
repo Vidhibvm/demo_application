@@ -62,7 +62,7 @@ public class NestedApiActivityActivity extends AppCompatActivity {
                 book.setPer_page(Integer.valueOf(per_page));
                 book.setTotal(Integer.valueOf(total));
                 book.setTotal_pages(Integer.valueOf(total_pages));
-
+                datalist = new ArrayList<>();
                 for (int j = 0; j < data.length(); j++) {
                     Data data1 = new Data();
                     JSONObject jsonObject2 = data.getJSONObject(j);

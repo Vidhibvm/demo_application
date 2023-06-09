@@ -42,6 +42,12 @@ public class SplashActivity extends AppCompatActivity {
     ShapeableImageView image;
 
 
+
+
+
+    //////////////check intenet permission
+    //////////////check variavle not nulll
+
     @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
