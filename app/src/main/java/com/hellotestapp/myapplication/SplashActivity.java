@@ -42,9 +42,6 @@ public class SplashActivity extends AppCompatActivity {
     ShapeableImageView image;
 
 
-
-
-
     @SuppressLint("WrongThread")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
