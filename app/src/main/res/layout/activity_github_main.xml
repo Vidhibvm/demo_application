@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".githubapicall.GithubMainActivity">
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txthasmore"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtquota_max"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtquota_remaining"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_mainobject"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

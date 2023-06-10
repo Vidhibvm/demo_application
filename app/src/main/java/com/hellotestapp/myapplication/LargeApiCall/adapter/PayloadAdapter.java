@@ -29,30 +29,30 @@ public class PayloadAdapter extends RecyclerView.Adapter<PayloadAdapter.PayloadV
     int view_app_network = 2;
 
 
-    public PayloadAdapter(Context context, ArrayList<Object> payloadlist){
+    public PayloadAdapter(Context context, ArrayList<Object> payloadlist) {
         this.context = context;
         this.payloadlist = payloadlist;
     }
+
     @NonNull
     @Override
     public PayloadViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        if(viewType == view_app_setting){
-            View view = LayoutInflater.from(context).inflate(R.layout.appsetting_item,parent,false);
-            return new PayloadViewholder(view,viewType);
+        if (viewType == view_app_setting) {
+            View view = LayoutInflater.from(context).inflate(R.layout.appsetting_item, parent, false);
+            return new PayloadViewholder(view, viewType);
         }
-        View view = LayoutInflater.from(context).inflate(R.layout.adnetwork_item,parent,false);
-        return new PayloadViewholder(view,viewType);
+        View view = LayoutInflater.from(context).inflate(R.layout.adnetwork_item, parent, false);
+        return new PayloadViewholder(view, viewType);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PayloadViewholder holder, int position) {
-        if(payloadlist.get(position) instanceof AppSettingItem){
+        if (payloadlist.get(position) instanceof AppSettingItem) {
             Object data = payloadlist.get(position);
             AppSettingItem settingItem = (AppSettingItem) data;
             holder.key.setText(settingItem.getKey());
             holder.value.setText(settingItem.getValue());
-        }
-        else{
+        } else {
             Object adnetwork = payloadlist.get(position);
             AdNetworksItem data2 = (AdNetworksItem) adnetwork;
 
@@ -66,21 +66,27 @@ public class PayloadAdapter extends RecyclerView.Adapter<PayloadAdapter.PayloadV
             holder.priority.setText((String.valueOf(((AdNetworksItem) adnetwork).getPriority())));
             holder.api_key.setText(((AdNetworksItem) adnetwork).getApiKey());
 
-            /*ArrayList<AdData> bannerAdsItemArrayList = (ArrayList<AdData>) ((AdNetworksItem) adnetwork).getBannerAds();
+            ArrayList<AdData> bannerAdsItemArrayList = (ArrayList<AdData>) ((AdNetworksItem) adnetwork).getBannerAds();
             ArrayList<AdData> interstitialAdsItemArrayList = (ArrayList<AdData>) ((AdNetworksItem) adnetwork).getInterstitialAds();
             ArrayList<AdData> appOpenAdsItemArrayList = (ArrayList<AdData>) ((AdNetworksItem) adnetwork).getAppOpenAds();
             ArrayList<AdData> nativeAdsItemArrayList = (ArrayList<AdData>) ((AdNetworksItem) adnetwork).getNativeAds();
 
-            Log.e("TAG", "onBindViewHolderrrrrr: " + bannerAdsItemArrayList.size());
-            setAdData("Banner Ads", context, holder.ll_main, bannerAdsItemArrayList);
-
-            //
-            setAdData("Inter Ads", context, holder.ll_main, interstitialAdsItemArrayList);
-            setAdData("Open  Ads", context, holder.ll_main, appOpenAdsItemArrayList);
-            setAdData("Native Ads", context, holder.ll_main, nativeAdsItemArrayList);*/
-        }
+            if (bannerAdsItemArrayList != null) {
+                setAdData("Banner Ads", context, holder.ll_main, bannerAdsItemArrayList);
+            }
+            if (interstitialAdsItemArrayList != null) {
+                setAdData("Inter Ads", context, holder.ll_main, interstitialAdsItemArrayList);
+            }
+            if(appOpenAdsItemArrayList!=null) {
+                setAdData("Open  Ads", context, holder.ll_main, appOpenAdsItemArrayList);
+            }
+            if(nativeAdsItemArrayList!=null) {
+                setAdData("Native Ads", context, holder.ll_main, nativeAdsItemArrayList);
+            }
 
     }
+
+}
 
     @Override
     public int getItemCount() {
@@ -91,43 +97,45 @@ public class PayloadAdapter extends RecyclerView.Adapter<PayloadAdapter.PayloadV
         TextView tv = new TextView(context);
         tv.setText(title);
         linearLayout.addView(tv);
-        for (AdData adsItem : AdsItemArrayList) {
-            TextView tv1 = new TextView(context);
-            tv.setText(adsItem.getAdNetwork());
-            linearLayout.addView(tv1);
-            TextView tv2 = new TextView(context);
-            tv.setText(adsItem.getAdUnitId());
-            linearLayout.addView(tv2);
+        if (AdsItemArrayList != null) {
+            for (AdData adsItem : AdsItemArrayList) {
+                TextView tv1 = new TextView(context);
+                tv.setText(adsItem.getAdNetwork());
+                linearLayout.addView(tv1);
+                TextView tv2 = new TextView(context);
+                tv.setText(adsItem.getAdUnitId());
+                linearLayout.addView(tv2);
+            }
         }
 
     }
 
     @Override
     public int getItemViewType(int position) {
-        if(payloadlist.get(position) instanceof AppSettingItem){
+        if (payloadlist.get(position) instanceof AppSettingItem) {
             return view_app_setting;
-        }
-        else{
+        } else {
             return view_app_network;
         }
     }
 
-    public class PayloadViewholder extends RecyclerView.ViewHolder {
-        MaterialTextView key, value;
-        MaterialTextView api_key, priority, enabled, ad_network;
-        LinearLayout ll_main;
-        public PayloadViewholder(@NonNull View itemView,int viewtype) {
-            super(itemView);
-            if (viewtype == view_app_setting) {
-                key = itemView.findViewById(R.id.key);
-                value = itemView.findViewById(R.id.value);
-            } else {
-                api_key = itemView.findViewById(R.id.api_key);
-                priority = itemView.findViewById(R.id.priority);
-                enabled = itemView.findViewById(R.id.enabled);
-                ad_network = itemView.findViewById(R.id.ad_network);
-                ll_main = itemView.findViewById(R.id.ll_main);
-            }
+public class PayloadViewholder extends RecyclerView.ViewHolder {
+    MaterialTextView key, value;
+    MaterialTextView api_key, priority, enabled, ad_network;
+    LinearLayout ll_main;
+
+    public PayloadViewholder(@NonNull View itemView, int viewtype) {
+        super(itemView);
+        if (viewtype == view_app_setting) {
+            key = itemView.findViewById(R.id.key);
+            value = itemView.findViewById(R.id.value);
+        } else {
+            api_key = itemView.findViewById(R.id.api_key);
+            priority = itemView.findViewById(R.id.priority);
+            enabled = itemView.findViewById(R.id.enabled);
+            ad_network = itemView.findViewById(R.id.ad_network);
+            ll_main = itemView.findViewById(R.id.ll_main);
         }
     }
+}
 }

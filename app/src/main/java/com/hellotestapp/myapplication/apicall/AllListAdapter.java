@@ -39,6 +39,8 @@ public class AllListAdapter extends RecyclerView.Adapter<AllListAdapter.MyViewHo
         holder.binding.txtcolor.setText(datalist.get(position).getColor().toString());
         holder.binding.txtyear.setText(datalist.get(position).getYear().toString());
         holder.binding.txtpantoneValue.setText(datalist.get(position).getPantoneValue());
+
+
     }
 
     @Override

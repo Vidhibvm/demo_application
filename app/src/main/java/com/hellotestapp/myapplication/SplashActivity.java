@@ -47,6 +47,7 @@ public class SplashActivity extends AppCompatActivity {
 
     //////////////check intenet permission
     //////////////check variavle not nulll
+    /////https://github.com/tutorialwing/retrofit
 
     @SuppressLint("WrongThread")
     @Override

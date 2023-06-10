@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#B5B5B5"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtis_answered"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtview_count"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtprotected_date"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtaccepted_answer_id"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_height="wrap_content"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txtanswer_count"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/_12sdp"
+        android:layout_marginVertical="@dimen/_2sdp"
+        android:textColor="@android:color/holo_green_dark"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_tags"
+        android:background="#BFDCFA"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_owner"
+        android:layout_width="match_parent"
+        android:background="#449AF4"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_height="wrap_content"/>
+
+
+
+
+</LinearLayout>

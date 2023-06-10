@@ -18,7 +18,7 @@ import retrofit2.Response;
 
 public class RestApiActivity extends AppCompatActivity {
     ActivityRestApiBinding restApiBinding;
-    ArrayList<Object> payloadlist;
+    ArrayList<Object> payloadlist=new ArrayList<>();
     AppInterface appInterface;
 
     @Override
